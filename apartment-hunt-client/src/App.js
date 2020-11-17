@@ -1,43 +1,53 @@
-import React from 'react';
+import logo from './logo.svg';
 import './App.scss';
-import '../src/style/style.scss';
-import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
-import Home from './Components/Home/Home';
-import NotFound from './Components/NotFound/NotFound';
+import HomeDetails from './components/HomeDetails/HomeDetails';
+import Login from './components/Login/Login';
+import AddHouseRent from './components/Dashboard/AddHouseRent/AddHouseRent'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import Dashboard from './components/Dashboard/Dashboard/Dashboard';
+import MyRent from './components/Dashboard/MyRent/MyRent';
+import BookingList from './components/Dashboard/BookingList/BookingList';
+import Home from './components/Home/Home';
+
 
 function App() {
   return (
-      <Router>
-         <Switch>
-           <Route path ="/home">
-               <Home></Home>
-           </Route>
-           {/* <Route path="/login">
-               <Login></Login>
-           </Route> */}
-           {/* <Route path="/admin">
-                <Admin></Admin>
-           </Route> */}
-           {/* <PrivateRoute path="/events">
-              <EventPage></EventPage>
-           </PrivateRoute> */}
-           {/* <Route path="/delete/:id">
-              <Delete></Delete>
-           </Route> */}
-           {/* <PrivateRoute path="/booking/:bookingPlaceId">
-               <BookingDetail></BookingDetail>
-           </PrivateRoute> */}
-           {/* <PrivateRoute path="/:id">
-               <Registration></Registration>
-           </PrivateRoute> */}
-           <Route exact path="/">
-               <Home></Home>
-           </Route>
-           <Route path="*">
-               <NotFound></NotFound>
-           </Route>
-         </Switch>
-       </Router>
+    <Router>
+      
+      <div className="App">
+        <Switch>
+          <Route exact path="/">
+            <Home></Home>
+          </Route>
+          <Route path='/home'>
+            <Home></Home>
+          </Route>
+          <Route path="/homedetails">
+            <HomeDetails></HomeDetails>
+          </Route>
+          <Route path="/login">
+            <Login></Login>
+          </Route>
+          <Route path="/dashboard/bookinglist">
+            <Dashboard></Dashboard>
+          </Route>
+          <Route path="/dashboard/bookinglist">
+            <BookingList></BookingList>
+          </Route>
+          <Route path="/dashboard/myrent">
+            <MyRent></MyRent>
+          </Route>
+          <Route path="/dashboard/addhouserent">
+            <AddHouseRent></AddHouseRent>
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
